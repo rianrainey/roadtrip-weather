@@ -8,46 +8,62 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
-  var results = [] as [MKMapItem]
+
+  let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
+  var results:[MKMapItem] = []
+  var destinationSelection:String? = nil
   
   @IBOutlet weak var mapView: MKMapView!
-  @IBOutlet weak var locationText: UITextField!
+  @IBOutlet weak var fromText: UITextField!
+  @IBOutlet weak var toText: UITextField!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    toText.delegate = self
+    fromText.delegate = self
     
-    let location = CLLocationCoordinate2D(
-      latitude: 36.177846,
-      longitude: -86.788432
-    )
+    ///////////////////////////
+    // Display Current Location
+    ///////////////////////////
+    let locationManager = appDelegate.locationManager
+    locationManager.startUpdatingLocation()
     
-    let span = MKCoordinateSpanMake(0.05, 0.05)
-    let region = MKCoordinateRegion(center: location, span: span)
+    var location = locationManager.location
+    locationManager.stopUpdatingLocation()
+    
+    if location == nil {
+      location = CLLocation(latitude: 36.177846, longitude: -86.788432) // Nashville
+    }
+    
+    mapView.showsUserLocation = true
+    
+    var coordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+    var region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 500)
     mapView.setRegion(region, animated: true)
-      
-    let annotation = MKPointAnnotation()
-    annotation.coordinate = location
-    annotation.title = "CentreSource"
-    annotation.subtitle = "Nashville"
-    mapView.addAnnotation(annotation)
     
-    self.locationText.delegate = self;
+    let annotation = MKPointAnnotation()
+    annotation.coordinate = location.coordinate
+    annotation.title = "This is where you are"
+    annotation.subtitle = "How did you find me?"
+    mapView.addAnnotation(annotation)
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    self.results = []
+    toText.text = destinationSelection
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  @IBAction func zoomIn(sender: AnyObject) {
-    
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     self.view.endEditing(true)
-    return false
+    return true
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -57,11 +73,15 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
       }
     }
   }
+  
+  @IBAction func unwindToMapView(sender: UIStoryboardSegue) {
+    let sourceController: AnyObject = sender.sourceViewController
+    toText.text = destinationSelection
+  }
 
   @IBAction func searchSubmitted(sender: AnyObject) {
-    // If results, prepareforsegue to SearchResultsTableViewController
     var request = MKLocalSearchRequest()
-    request.naturalLanguageQuery = locationText.text
+    request.naturalLanguageQuery = toText.text
     var localSearch = MKLocalSearch(request: request)
     localSearch.startWithCompletionHandler { (response:MKLocalSearchResponse!, e:NSError!) -> Void in
       if e == nil {
@@ -70,10 +90,6 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
           self.results.append(item as! MKMapItem)
         }
         self.performSegueWithIdentifier("searchResultsSegue", sender: self)
-//        SearchResultsTableViewController.prepareForSegue(<#UIViewController#>)
-//        SearchResultsTableViewController.prepareForSegue(<#SearchResultsTableViewController#>) //Wi('searchResultsSegue', sender: self)
-        
-        
       }
       else {
         println("Error")

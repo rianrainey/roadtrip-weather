@@ -10,8 +10,9 @@ import UIKit
 import MapKit
 
 class SearchResultsTableViewController: UITableViewController {
-  var results = [] as [MKMapItem]
-
+    var results:[MKMapItem] = []
+    var destinationSelection:String? = nil
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,58 +39,35 @@ class SearchResultsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 1
+        return results.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("mapResultsIdentifier", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
+        let mapItem = results[indexPath.row]
+        cell.textLabel?.text = mapItem.name
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+  
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//      return results[indexPath.row].name
+      let indexPath = tableView.indexPathForSelectedRow();
+      let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!;
+      destinationSelection == currentCell.textLabel?.text
+      
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      
+      if let vc = segue.destinationViewController as? ViewController {
+        vc.destinationSelection = sender?.textLabel??.text
+      }
     }
+  
+
 }

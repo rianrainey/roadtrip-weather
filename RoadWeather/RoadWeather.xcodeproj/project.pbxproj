@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EA0948471AC0F8BB00B7A2CD /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0948461AC0F8BB00B7A2CD /* SearchResultsTableViewController.swift */; };
+		EA51C26F1AD606F800061058 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA51C26E1AD606F800061058 /* CoreLocation.framework */; };
 		EAFCDE351AB09C900063EFDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCDE341AB09C900063EFDC /* AppDelegate.swift */; };
 		EAFCDE371AB09C900063EFDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCDE361AB09C900063EFDC /* ViewController.swift */; };
 		EAFCDE3A1AB09C900063EFDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAFCDE381AB09C900063EFDC /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		EA0948461AC0F8BB00B7A2CD /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
+		EA51C26E1AD606F800061058 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EAFCDE2F1AB09C900063EFDC /* RoadWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAFCDE331AB09C900063EFDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAFCDE341AB09C900063EFDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA51C26F1AD606F800061058 /* CoreLocation.framework in Frameworks */,
 				EAFCDE551AB0A5780063EFDC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +67,7 @@
 		EAFCDE261AB09C900063EFDC = {
 			isa = PBXGroup;
 			children = (
+				EA51C26E1AD606F800061058 /* CoreLocation.framework */,
 				EAFCDE541AB0A5780063EFDC /* MapKit.framework */,
 				EAFCDE311AB09C900063EFDC /* RoadWeather */,
 				EAFCDE471AB09C900063EFDC /* RoadWeatherTests */,
@@ -85,11 +89,11 @@
 			children = (
 				EAFCDE341AB09C900063EFDC /* AppDelegate.swift */,
 				EAFCDE361AB09C900063EFDC /* ViewController.swift */,
+				EA0948461AC0F8BB00B7A2CD /* SearchResultsTableViewController.swift */,
 				EAFCDE381AB09C900063EFDC /* Main.storyboard */,
 				EAFCDE3B1AB09C900063EFDC /* Images.xcassets */,
 				EAFCDE3D1AB09C900063EFDC /* LaunchScreen.xib */,
 				EAFCDE321AB09C900063EFDC /* Supporting Files */,
-				EA0948461AC0F8BB00B7A2CD /* SearchResultsTableViewController.swift */,
 			);
 			path = RoadWeather;
 			sourceTree = "<group>";
@@ -168,6 +172,7 @@
 				TargetAttributes = {
 					EAFCDE2E1AB09C900063EFDC = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = ZJLHD2N3Z5;
 					};
 					EAFCDE431AB09C900063EFDC = {
 						CreatedOnToolsVersion = 6.2;
@@ -346,9 +351,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RoadWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -356,9 +366,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RoadWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -10,6 +10,8 @@
 	<string>RoadWeather</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>26FFDF2A5FF286DF8C6E55C44E5331E55A4B68BB</key>
+		<string>github.com:rianrainey/roadtrip-weather.git</string>
 		<key>3D60FD7B3A9B51AC0806319F652493DFEF6FD960</key>
 		<string>github.com:rianrainey/roadtrip-weather.git</string>
 		<key>F3DC7D1B79DFCDEA8DE1F2B127FB50AD110DD65B</key>
@@ -19,8 +21,10 @@
 	<string>RoadWeather.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>3D60FD7B3A9B51AC0806319F652493DFEF6FD960</key>
+		<key>26FFDF2A5FF286DF8C6E55C44E5331E55A4B68BB</key>
 		<string>..</string>
+		<key>3D60FD7B3A9B51AC0806319F652493DFEF6FD960</key>
+		<string>../../RoadWeather</string>
 		<key>F3DC7D1B79DFCDEA8DE1F2B127FB50AD110DD65B</key>
 		<string>../..</string>
 	</dict>
@@ -29,7 +33,7 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3D60FD7B3A9B51AC0806319F652493DFEF6FD960</string>
+	<string>26FFDF2A5FF286DF8C6E55C44E5331E55A4B68BB</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -39,6 +43,14 @@
 			<string>F3DC7D1B79DFCDEA8DE1F2B127FB50AD110DD65B</string>
 			<key>IDESourceControlWCCName</key>
 			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>26FFDF2A5FF286DF8C6E55C44E5331E55A4B68BB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>roadtrip-weather</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
