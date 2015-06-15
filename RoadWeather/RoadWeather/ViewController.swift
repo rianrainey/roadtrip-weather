@@ -15,16 +15,30 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
   let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
   var results:[MKMapItem] = []
-  var destinationSelection:String? = nil
+  var selectedDestination:MKMapItem? = nil
   
   @IBOutlet weak var mapView: MKMapView!
-  @IBOutlet weak var fromText: UITextField!
-  @IBOutlet weak var toText: UITextField!
+  @IBOutlet weak var startingTextField: UITextField!
+  @IBOutlet weak var destinationTextField: UITextField!
+  
+//  override func viewDidLayoutSubviews() {
+//    destinationTextField.frame.size.height = CGFloat(50.0)
+//    var newFrame = destinationTextField.frame
+//    newFrame.size.height = CGFloat(50.0)
+//    startingTextField.frame = newFrame
+    
+//    var searchIcon: UILabel
+//    searchIcon.text = NSString.init() as String;
+//    destinationTextField.leftView =
+//    destinationTextField.leftViewMode = UITextFieldViewMode.Always
+//  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    toText.delegate = self
-    fromText.delegate = self
+    navigationController?.setNavigationBarHidden(true, animated: false)
+    destinationTextField.delegate = self
+    startingTextField.delegate = self
+    startingTextField.hidden = true
     
     ///////////////////////////
     // Display Current Location
@@ -40,10 +54,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     }
     
     mapView.showsUserLocation = true
-    
-    var coordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-    var region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 500)
-    mapView.setRegion(region, animated: true)
+    orientMap(location)
     
     let annotation = MKPointAnnotation()
     annotation.coordinate = location.coordinate
@@ -52,9 +63,15 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     mapView.addAnnotation(annotation)
   }
   
+  func orientMap(location:CLLocation) {
+    var coordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+    var region = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 500)
+    mapView.setRegion(region, animated: true)
+  }
+  
   override func viewWillAppear(animated: Bool) {
     self.results = []
-    toText.text = destinationSelection
+//    destinationTextField.text = selectedDestination?.name
   }
 
   override func didReceiveMemoryWarning() {
@@ -76,12 +93,13 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
   
   @IBAction func unwindToMapView(sender: UIStoryboardSegue) {
     let sourceController: AnyObject = sender.sourceViewController
-    toText.text = destinationSelection
+//    destinationTextField.text = sourceController.selection!!.name
+    destinationTextField.text = sourceController.selectedDestination!!.name
   }
 
   @IBAction func searchSubmitted(sender: AnyObject) {
     var request = MKLocalSearchRequest()
-    request.naturalLanguageQuery = toText.text
+    request.naturalLanguageQuery = destinationTextField.text
     var localSearch = MKLocalSearch(request: request)
     localSearch.startWithCompletionHandler { (response:MKLocalSearchResponse!, e:NSError!) -> Void in
       if e == nil {

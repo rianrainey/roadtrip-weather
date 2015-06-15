@@ -9,18 +9,14 @@
 import UIKit
 import MapKit
 
-class SearchResultsTableViewController: UITableViewController {
+class SearchResultsTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     var results:[MKMapItem] = []
-    var destinationSelection:String? = nil
+//    var destinationSelection:String? = nil
+    var selectedDestination:MKMapItem? = nil
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +33,6 @@ class SearchResultsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return results.count
     }
@@ -53,19 +48,22 @@ class SearchResultsTableViewController: UITableViewController {
     }
   
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//      return results[indexPath.row].name
       let indexPath = tableView.indexPathForSelectedRow();
       let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!;
-      destinationSelection == currentCell.textLabel?.text
-      
+//      destinationSelection = currentCell.textLabel?.text
+      selectedDestination = results[indexPath!.row]
+//      performSegueWithIdentifier("destinationSelectedSegue", sender: self)
     }
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if let vc = segue.destinationViewController as? ViewController {
-        vc.destinationSelection = sender?.textLabel??.text
+//        vc.destinationSelectionText = sender?.textLabel??.text
+        //vc.selectedDestination
+        
+        let indexRow = self.tableView.indexPathForCell(sender as! UITableViewCell)!.row
+        vc.selectedDestination = results[indexRow]
       }
     }
   
