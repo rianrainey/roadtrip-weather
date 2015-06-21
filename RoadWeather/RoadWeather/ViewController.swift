@@ -92,9 +92,9 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
   }
   
   @IBAction func unwindToMapView(sender: UIStoryboardSegue) {
-    let sourceController: AnyObject = sender.sourceViewController
+    let sourceController: SearchResultsTableViewController = sender.sourceViewController as! SearchResultsTableViewController
 //    destinationTextField.text = sourceController.selection!!.name
-    destinationTextField.text = sourceController.selectedDestination!!.name
+    destinationTextField.text = selectedDestination!.name
   }
 
   @IBAction func searchSubmitted(sender: AnyObject) {
