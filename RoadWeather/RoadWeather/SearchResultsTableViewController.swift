@@ -48,20 +48,12 @@ class SearchResultsTableViewController: UITableViewController, UITableViewDataSo
     }
   
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      let indexPath = tableView.indexPathForSelectedRow();
-      let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!;
-//      destinationSelection = currentCell.textLabel?.text
-      selectedDestination = results[indexPath!.row]
-//      performSegueWithIdentifier("destinationSelectedSegue", sender: self)
     }
 
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if let vc = segue.destinationViewController as? ViewController {
-//        vc.destinationSelectionText = sender?.textLabel??.text
-        //vc.selectedDestination
-        
         let indexRow = self.tableView.indexPathForCell(sender as! UITableViewCell)!.row
         vc.selectedDestination = results[indexRow]
       }

@@ -56,11 +56,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2im-Zw-wk9">
+                                <rect key="frame" x="251" y="530" width="100" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="TDC-aM-Hc3"/>
+                                    <constraint firstAttribute="height" constant="50" id="brq-uS-p18"/>
+                                </constraints>
+                                <state key="normal" title="Start Route"/>
+                                <connections>
+                                    <action selector="startRoutePressed:" destination="WMb-Tp-NcL" eventType="touchUpInside" id="MVU-0h-Wbw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="8lJ-qB-kJo" firstAttribute="top" secondItem="4ux-SH-u7K" secondAttribute="bottom" constant="8" id="0hH-wE-R5e"/>
+                            <constraint firstItem="VtF-k2-xq5" firstAttribute="top" secondItem="2im-Zw-wk9" secondAttribute="bottom" constant="20" id="2e1-aq-ZVp"/>
                             <constraint firstItem="8lJ-qB-kJo" firstAttribute="top" secondItem="1tg-71-fW3" secondAttribute="bottom" constant="8" id="Ceq-Pt-3HD"/>
                             <constraint firstItem="SLa-tq-DCC" firstAttribute="leading" secondItem="Ya3-tL-FI8" secondAttribute="leading" id="DaD-QI-BsQ"/>
+                            <constraint firstAttribute="centerX" secondItem="2im-Zw-wk9" secondAttribute="centerX" constant="-1" id="HHz-51-8sZ"/>
                             <constraint firstAttribute="trailing" secondItem="8lJ-qB-kJo" secondAttribute="trailing" constant="16" id="HLD-a1-eHp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1tg-71-fW3" secondAttribute="trailing" id="Nbs-E4-KWI"/>
                             <constraint firstItem="8lJ-qB-kJo" firstAttribute="leading" secondItem="Ya3-tL-FI8" secondAttribute="leadingMargin" id="OOc-nx-XLG"/>
@@ -68,8 +82,11 @@
                             <constraint firstAttribute="trailing" secondItem="SLa-tq-DCC" secondAttribute="trailing" id="UXZ-XT-3Es"/>
                             <constraint firstItem="8lJ-qB-kJo" firstAttribute="trailing" secondItem="Ya3-tL-FI8" secondAttribute="trailingMargin" id="XaZ-aH-mpB"/>
                             <constraint firstItem="1tg-71-fW3" firstAttribute="leading" secondItem="Ya3-tL-FI8" secondAttribute="leadingMargin" id="aVq-dd-t65"/>
+                            <constraint firstItem="VtF-k2-xq5" firstAttribute="top" secondItem="2im-Zw-wk9" secondAttribute="bottom" constant="20" id="aeg-Vv-tza"/>
                             <constraint firstItem="8lJ-qB-kJo" firstAttribute="leading" secondItem="Ya3-tL-FI8" secondAttribute="leading" id="bt5-Fg-LGw"/>
+                            <constraint firstAttribute="centerX" secondItem="2im-Zw-wk9" secondAttribute="centerX" constant="-1" id="gJx-6I-6bM"/>
                             <constraint firstItem="1tg-71-fW3" firstAttribute="top" secondItem="4ux-SH-u7K" secondAttribute="bottom" constant="8" id="m9D-bO-aOJ"/>
+                            <constraint firstAttribute="centerX" secondItem="2im-Zw-wk9" secondAttribute="centerX" constant="-1" id="omB-Yi-Bs3"/>
                             <constraint firstItem="SLa-tq-DCC" firstAttribute="top" secondItem="4ux-SH-u7K" secondAttribute="bottom" id="vl6-mg-WFC"/>
                         </constraints>
                         <variation key="default">
@@ -77,6 +94,9 @@
                                 <exclude reference="Ceq-Pt-3HD"/>
                                 <exclude reference="HLD-a1-eHp"/>
                                 <exclude reference="bt5-Fg-LGw"/>
+                                <exclude reference="HHz-51-8sZ"/>
+                                <exclude reference="omB-Yi-Bs3"/>
+                                <exclude reference="2e1-aq-ZVp"/>
                             </mask>
                         </variation>
                     </view>
@@ -84,6 +104,7 @@
                     <connections>
                         <outlet property="destinationTextField" destination="8lJ-qB-kJo" id="6SE-88-Gn1"/>
                         <outlet property="mapView" destination="SLa-tq-DCC" id="W3m-Au-I0S"/>
+                        <outlet property="startRouteButton" destination="2im-Zw-wk9" id="Eo7-ii-9Vn"/>
                         <outlet property="startingTextField" destination="1tg-71-fW3" id="Al9-Si-mm7"/>
                         <segue destination="WjK-6y-TZo" kind="show" identifier="searchResultsSegue" id="PUU-iS-DoZ"/>
                     </connections>

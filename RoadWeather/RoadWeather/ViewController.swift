@@ -20,6 +20,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var startingTextField: UITextField!
   @IBOutlet weak var destinationTextField: UITextField!
+  @IBOutlet weak var startRouteButton: UIButton!
   
 //  override func viewDidLayoutSubviews() {
 //    destinationTextField.frame.size.height = CGFloat(50.0)
@@ -39,6 +40,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     destinationTextField.delegate = self
     startingTextField.delegate = self
     startingTextField.hidden = true
+    hideRouteButton()
     
     ///////////////////////////
     // Display Current Location
@@ -71,7 +73,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
   
   override func viewWillAppear(animated: Bool) {
     self.results = []
-//    destinationTextField.text = selectedDestination?.name
+    setupStartRouteButton()
   }
 
   override func didReceiveMemoryWarning() {
@@ -91,10 +93,26 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     }
   }
   
+  func setupStartRouteButton() {
+    startRouteButton.layer.cornerRadius = 5
+    startRouteButton.layer.borderWidth = 1.0
+    startRouteButton.layer.borderColor = self.view.tintColor.CGColor
+    startRouteButton.clipsToBounds = true
+  }
+  
+  func showRouteButton() {
+    startRouteButton.hidden = false
+  }
+  
+  func hideRouteButton() {
+    startRouteButton.hidden = true
+  }
+  
   @IBAction func unwindToMapView(sender: UIStoryboardSegue) {
     let sourceController: SearchResultsTableViewController = sender.sourceViewController as! SearchResultsTableViewController
-//    destinationTextField.text = sourceController.selection!!.name
     destinationTextField.text = selectedDestination!.name
+    
+    showRouteButton()
   }
 
   @IBAction func searchSubmitted(sender: AnyObject) {
@@ -116,6 +134,9 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     
     
     // Else, somehow say no results and have them search again
+  }
+  @IBAction func startRoutePressed(sender: AnyObject) {
+    
   }
 }
 
