@@ -13,7 +13,7 @@ import CoreLocation
 class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
 
   let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-
+  var currentLocation:CLLocation? = nil
   var results:[MKMapItem] = []
   var selectedDestination:MKMapItem? = nil
   
@@ -22,24 +22,13 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
   @IBOutlet weak var destinationTextField: UITextField!
   @IBOutlet weak var startRouteButton: UIButton!
   
-//  override func viewDidLayoutSubviews() {
-//    destinationTextField.frame.size.height = CGFloat(50.0)
-//    var newFrame = destinationTextField.frame
-//    newFrame.size.height = CGFloat(50.0)
-//    startingTextField.frame = newFrame
-    
-//    var searchIcon: UILabel
-//    searchIcon.text = NSString.init() as String;
-//    destinationTextField.leftView =
-//    destinationTextField.leftViewMode = UITextFieldViewMode.Always
-//  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController?.setNavigationBarHidden(true, animated: false)
     destinationTextField.delegate = self
     startingTextField.delegate = self
     startingTextField.hidden = true
+    mapView.delegate = self
     hideRouteButton()
     
     ///////////////////////////
@@ -47,19 +36,18 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     ///////////////////////////
     let locationManager = appDelegate.locationManager
     locationManager.startUpdatingLocation()
-    
-    var location = locationManager.location
+    currentLocation = locationManager.location
     locationManager.stopUpdatingLocation()
     
-    if location == nil {
-      location = CLLocation(latitude: 36.177846, longitude: -86.788432) // Nashville
+    if currentLocation == nil {
+      currentLocation = CLLocation(latitude: 36.177846, longitude: -86.788432) // Nashville
     }
     
     mapView.showsUserLocation = true
-    orientMap(location)
+    orientMap(currentLocation!)
     
     let annotation = MKPointAnnotation()
-    annotation.coordinate = location.coordinate
+    annotation.coordinate = currentLocation!.coordinate
     annotation.title = "This is where you are"
     annotation.subtitle = "How did you find me?"
     mapView.addAnnotation(annotation)
@@ -93,6 +81,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     }
   }
   
+  // MARK: - StartRouteButton
   func setupStartRouteButton() {
     startRouteButton.layer.cornerRadius = 5
     startRouteButton.layer.borderWidth = 1.0
@@ -108,13 +97,14 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     startRouteButton.hidden = true
   }
   
+  // MARK: - IBActions
   @IBAction func unwindToMapView(sender: UIStoryboardSegue) {
     let sourceController: SearchResultsTableViewController = sender.sourceViewController as! SearchResultsTableViewController
     destinationTextField.text = selectedDestination!.name
     
     showRouteButton()
   }
-
+  
   @IBAction func searchSubmitted(sender: AnyObject) {
     var request = MKLocalSearchRequest()
     request.naturalLanguageQuery = destinationTextField.text
@@ -135,8 +125,55 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     
     // Else, somehow say no results and have them search again
   }
+  
   @IBAction func startRoutePressed(sender: AnyObject) {
+    let request = MKDirectionsRequest()
+    var current2D = CLLocationCoordinate2DMake(currentLocation!.coordinate.latitude, currentLocation!.coordinate.longitude)
+    var currentPlacemark = MKPlacemark(coordinate: current2D, addressDictionary: nil)
+    var currentMapItem = MKMapItem(placemark: currentPlacemark)
+    request.setSource(currentMapItem)
+//    request.setSource(MKMapItem.mapItemForCurrentLocation())
+    request.setDestination(selectedDestination)
+    request.requestsAlternateRoutes = false
     
+    let directions = MKDirections(request: request)
+    
+    directions.calculateDirectionsWithCompletionHandler({(response: MKDirectionsResponse!, error: NSError!) in
+      
+      if error != nil {
+        // Handle error
+        println("There was an error: #{error}")
+      } else {
+        println("SUCCESS!")
+        self.showRoute(response)
+      }
+      
+    })
+  }
+  
+  func showRoute(response: MKDirectionsResponse) {
+    for route in response.routes as! [MKRoute] {
+      mapView.addOverlay(route.polyline,
+        level: MKOverlayLevel.AboveRoads)
+      
+      for step in route.steps {
+        println(step.instructions)
+      }
+    }
+    
+    var userLocation = mapView.userLocation.location
+    userLocation != nil ? userLocation : currentLocation
+    let region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 2000, 2000)
+    
+    mapView.setRegion(region, animated: true)
+  }
+  
+  func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+      let renderer = MKPolylineRenderer(overlay: overlay)
+      
+      renderer.strokeColor = UIColor.blueColor()
+      renderer.lineWidth = 5.0
+      return renderer
   }
 }
 
