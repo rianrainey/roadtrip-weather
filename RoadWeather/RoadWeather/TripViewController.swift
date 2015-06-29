@@ -9,14 +9,10 @@
 import UIKit
 
 class TripViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
-  @IBOutlet weak var directionsTableView: UITableView!
-  @IBOutlet weak var weatherTableView: UITableView!
   @IBOutlet weak var tripSegmentControl: UISegmentedControl!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    directionsTableView.hidden = false
-    weatherTableView.hidden = true
       // Do any additional setup after loading the view.
   }
 
@@ -40,7 +36,7 @@ class TripViewController: UITableViewController, UITableViewDelegate, UITableVie
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("directionsCell", forIndexPath: indexPath) as! UITableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("tripCell", forIndexPath: indexPath) as! UITableViewCell
     
     // Configure the cell...
     
@@ -52,12 +48,8 @@ class TripViewController: UITableViewController, UITableViewDelegate, UITableVie
     switch tripSegmentControl.selectedSegmentIndex {
     case 0:
       println("zero")
-      directionsTableView.hidden = false
-      weatherTableView.hidden = true
     case 1:
       println("one")
-      directionsTableView.hidden = true
-      weatherTableView.hidden = false
     default:
       break;
     }
