@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		EA0948471AC0F8BB00B7A2CD /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0948461AC0F8BB00B7A2CD /* SearchResultsTableViewController.swift */; };
 		EA51C26F1AD606F800061058 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA51C26E1AD606F800061058 /* CoreLocation.framework */; };
+		EA6797A51B40B30B008C4375 /* DirectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6797A21B40B30B008C4375 /* DirectionsTableViewController.swift */; };
+		EA6797A61B40B30B008C4375 /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6797A31B40B30B008C4375 /* TripViewController.swift */; };
+		EA6797A71B40B30B008C4375 /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6797A41B40B30B008C4375 /* WeatherTableViewController.swift */; };
+		EA6797A91B40C258008C4375 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6797A81B40C258008C4375 /* TableViewController.swift */; };
 		EAFCDE351AB09C900063EFDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCDE341AB09C900063EFDC /* AppDelegate.swift */; };
 		EAFCDE371AB09C900063EFDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCDE361AB09C900063EFDC /* ViewController.swift */; };
 		EAFCDE3A1AB09C900063EFDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAFCDE381AB09C900063EFDC /* Main.storyboard */; };
@@ -31,6 +35,10 @@
 /* Begin PBXFileReference section */
 		EA0948461AC0F8BB00B7A2CD /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		EA51C26E1AD606F800061058 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EA6797A21B40B30B008C4375 /* DirectionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsTableViewController.swift; sourceTree = "<group>"; };
+		EA6797A31B40B30B008C4375 /* TripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
+		EA6797A41B40B30B008C4375 /* WeatherTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
+		EA6797A81B40C258008C4375 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EAFCDE2F1AB09C900063EFDC /* RoadWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAFCDE331AB09C900063EFDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAFCDE341AB09C900063EFDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +75,7 @@
 		EAFCDE261AB09C900063EFDC = {
 			isa = PBXGroup;
 			children = (
+				EA6797A81B40C258008C4375 /* TableViewController.swift */,
 				EA51C26E1AD606F800061058 /* CoreLocation.framework */,
 				EAFCDE541AB0A5780063EFDC /* MapKit.framework */,
 				EAFCDE311AB09C900063EFDC /* RoadWeather */,
@@ -88,8 +97,11 @@
 			isa = PBXGroup;
 			children = (
 				EAFCDE341AB09C900063EFDC /* AppDelegate.swift */,
+				EA6797A21B40B30B008C4375 /* DirectionsTableViewController.swift */,
 				EAFCDE361AB09C900063EFDC /* ViewController.swift */,
 				EA0948461AC0F8BB00B7A2CD /* SearchResultsTableViewController.swift */,
+				EA6797A31B40B30B008C4375 /* TripViewController.swift */,
+				EA6797A41B40B30B008C4375 /* WeatherTableViewController.swift */,
 				EAFCDE381AB09C900063EFDC /* Main.storyboard */,
 				EAFCDE3B1AB09C900063EFDC /* Images.xcassets */,
 				EAFCDE3D1AB09C900063EFDC /* LaunchScreen.xib */,
@@ -225,7 +237,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAFCDE371AB09C900063EFDC /* ViewController.swift in Sources */,
+				EA6797A91B40C258008C4375 /* TableViewController.swift in Sources */,
+				EA6797A61B40B30B008C4375 /* TripViewController.swift in Sources */,
+				EA6797A51B40B30B008C4375 /* DirectionsTableViewController.swift in Sources */,
 				EAFCDE351AB09C900063EFDC /* AppDelegate.swift in Sources */,
+				EA6797A71B40B30B008C4375 /* WeatherTableViewController.swift in Sources */,
 				EA0948471AC0F8BB00B7A2CD /* SearchResultsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
