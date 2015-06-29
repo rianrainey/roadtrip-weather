@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RoadWeather/RoadWeather/TripViewController.swift"
-            timestampString = "457233246.47001"
+            timestampString = "457235225.257672"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "tripSegmentPressed(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,29 +26,185 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RoadWeather/RoadWeather/TripViewController.swift"
-            timestampString = "457233246.47001"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "tripSegmentPressed(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RoadWeather/RoadWeather/TripViewController.swift"
-            timestampString = "457233246.47001"
+            timestampString = "457235225.257672"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "tripSegmentPressed(_:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RoadWeather/RoadWeather/TripViewController.swift"
+            timestampString = "457235225.257672"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "tripSegmentPressed(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RoadWeather/RoadWeather/ViewController.swift"
+            timestampString = "457234802.004727"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RoadWeather/RoadWeather/TripViewController.swift"
+            timestampString = "457234865.424864"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RoadWeather/RoadWeather/TripViewController.swift"
+            timestampString = "457235394.549435"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RoadWeather/RoadWeather/TripViewController.swift"
+            timestampString = "457235450.135544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "TripViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RoadWeather.TripViewController.directions.getter : ObjectiveC.NSArray"
+                  moduleName = "RoadWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rianrainey/Code/roadtrip-weather/RoadWeather/RoadWeather/TripViewController.swift"
+                  timestampString = "457235450.145121"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RoadWeather.TripViewController.directions.setter : ObjectiveC.NSArray"
+                  moduleName = "RoadWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rianrainey/Code/roadtrip-weather/RoadWeather/RoadWeather/TripViewController.swift"
+                  timestampString = "457235450.145291"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RoadWeather.TripViewController.directions.materializeForSet : ObjectiveC.NSArray"
+                  moduleName = "RoadWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rianrainey/Code/roadtrip-weather/RoadWeather/RoadWeather/TripViewController.swift"
+                  timestampString = "457235450.145404"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RoadWeather.TripViewController.init (RoadWeather.TripViewController.Type)(style : C.UITableViewStyle) -&gt; RoadWeather.TripViewController"
+                  moduleName = "RoadWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rianrainey/Code/roadtrip-weather/RoadWeather/RoadWeather/TripViewController.swift"
+                  timestampString = "457235450.145515"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RoadWeather.TripViewController.init (RoadWeather.TripViewController.Type)(nibName : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, bundle : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSBundle&gt;) -&gt; Swift.ImplicitlyUnwrappedOptional&lt;RoadWeather.TripViewController&gt;"
+                  moduleName = "RoadWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rianrainey/Code/roadtrip-weather/RoadWeather/RoadWeather/TripViewController.swift"
+                  timestampString = "457235450.145626"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RoadWeather.TripViewController.init (RoadWeather.TripViewController.Type)(coder : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSCoder&gt;) -&gt; Swift.ImplicitlyUnwrappedOptional&lt;RoadWeather.TripViewController&gt;"
+                  moduleName = "RoadWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rianrainey/Code/roadtrip-weather/RoadWeather/RoadWeather/TripViewController.swift"
+                  timestampString = "457235450.145744"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

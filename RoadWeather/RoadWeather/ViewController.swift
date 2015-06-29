@@ -17,6 +17,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
   var currentLocation:CLLocation? = nil
   var results:[MKMapItem] = []
   var selectedDestination:MKMapItem? = nil
+  var directions = []
   
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var startingTextField: UITextField!
@@ -79,6 +80,10 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
       if let vc = segue.destinationViewController as? SearchResultsTableViewController { 
         vc.results = results
       }
+    } else if segue.identifier == "tripSegue" {
+      if let vc = segue.destinationViewController as? TripViewController {
+        vc.directions = directions
+      }
     }
   }
   
@@ -105,6 +110,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
   override func prefersStatusBarHidden() -> Bool {
     return true
   }
+  
   // MARK: - IBActions
   @IBAction func unwindToMapView(sender: UIStoryboardSegue) {
     let sourceController: SearchResultsTableViewController = sender.sourceViewController as! SearchResultsTableViewController
@@ -177,7 +183,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     
     directions.calculateDirectionsWithCompletionHandler({(response: MKDirectionsResponse!, error: NSError!) in
       if error != nil {
-        println("There was an error: #{error}")
+        println("There was an error: \(error)")
       } else {
         println("SUCCESS!")
         self.showRoute(response)
@@ -190,6 +196,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
       mapView.addOverlay(route.polyline,
         level: MKOverlayLevel.AboveRoads)
       
+      directions = route.steps
       for step in route.steps {
         println(step.instructions)
       }
@@ -197,8 +204,8 @@ class ViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
     
     let annotation = MKPointAnnotation()
     annotation.coordinate = selectedDestination!.placemark.coordinate
-    annotation.title = "This is where you are"
-    annotation.subtitle = "How did you find me?"
+    annotation.title = selectedDestination!.name
+    
     mapView.addAnnotation(annotation)
     
     mapView.showAnnotations(mapView.annotations, animated: true)

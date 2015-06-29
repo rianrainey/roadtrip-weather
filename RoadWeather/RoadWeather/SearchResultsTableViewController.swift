@@ -11,7 +11,6 @@ import MapKit
 
 class SearchResultsTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     var results:[MKMapItem] = []
-//    var destinationSelection:String? = nil
     var selectedDestination:MKMapItem? = nil
   
     override func viewDidLoad() {

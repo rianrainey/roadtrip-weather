@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import MapKit
 
-class TripViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class TripViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
   @IBOutlet weak var tripSegmentControl: UISegmentedControl!
+  
+  var directions = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,14 +35,13 @@ class TripViewController: UITableViewController, UITableViewDelegate, UITableVie
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1
+    return directions.count
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("tripCell", forIndexPath: indexPath) as! UITableViewCell
     
-    // Configure the cell...
-    
+    cell.textLabel?.text = directions[indexPath.row].instructions
     return cell
   }
   
